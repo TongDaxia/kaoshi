@@ -7,7 +7,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/kaoshi?characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/kaoshi?characterEncoding=utf-8&servertime=UTC&serverTimezone=UTC
 
 #  jpa:
 #    show-sql: true
