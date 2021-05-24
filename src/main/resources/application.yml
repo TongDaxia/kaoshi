@@ -1,0 +1,29 @@
+server:
+  port: 8089
+#  servlet-path: /kaoshi
+# 配置数据库相关的链接
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/kaoshi?characterEncoding=utf-8
+
+#  jpa:
+#    show-sql: true
+#    generate-ddl: true
+#    hibernate:
+#      ddl-auto: update
+#  redis:
+#    host: 192.168.25.142
+#    port: 6379
+#    timeout: 100
+#    database: 1
+
+mybatis:
+  mapper-locations: classpath:com.kaoshi.tyg.mapper/*.xml    #mapper文件扫描
+  type-aliases-package: com.kaoshi.tyg.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.kaoshi.tyg.mapper.ExerciseTitleMapper">
+
+
+    <select id="findAll" resultType="com.kaoshi.tyg.entity.ExerciseTitle">
+
+      SELECT * from exercise_title;
+
+    </select>
+
+    <select id="findByParentId"  parameterType="long" resultType="com.kaoshi.tyg.entity.ExerciseTitle">
+
+        SELECT * from exercise_title where parent_id = #{id} ;
+
+    </select>
+
+
+    <select id="findOptionByTitleId" parameterType="long" resultType="com.kaoshi.tyg.entity.ExerciseOption">
+
+        SELECT * from exercise_option where exercise_title_id = #{id} ;
+
+    </select>
+
+
+</mapper>
