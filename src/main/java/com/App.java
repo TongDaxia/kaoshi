@@ -14,7 +14,7 @@ public class App {
     public static void main(String[] args) {
 
         SpringApplication.run(App.class, args);
-        LOGGER.info("App stared！！");
+        LOGGER.info("--------------------server stared！！--------------------------");
     }
 
 }
