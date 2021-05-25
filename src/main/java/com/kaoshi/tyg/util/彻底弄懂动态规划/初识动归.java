@@ -1,4 +1,4 @@
-package com.kaoshi.tyg.彻底弄懂动态规划;
+package com.kaoshi.tyg.util.彻底弄懂动态规划;
 
 public class 初识动归 {
 
