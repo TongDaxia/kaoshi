@@ -5,8 +5,8 @@ import java.util.Map;
 
 public  class SubExerciseDTO{
 
-    private String subType ;
     private String title ;
+    private String subType ;
     private List<Map<String,Integer>>  option;// [{"":0},{"":1},{"":0},{"":0}],
     private String jiexi ;
 

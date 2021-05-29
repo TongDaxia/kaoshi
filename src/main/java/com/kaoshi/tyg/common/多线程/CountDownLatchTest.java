@@ -1,9 +1,9 @@
 package com.kaoshi.tyg.common.多线程;
 
 
-        import java.util.concurrent.CountDownLatch;
-        import java.util.concurrent.ExecutorService;
-        import java.util.concurrent.Executors;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class CountDownLatchTest {
 

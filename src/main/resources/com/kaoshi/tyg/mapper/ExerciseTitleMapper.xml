@@ -5,15 +5,11 @@
 
 
     <select id="findAll" resultType="com.kaoshi.tyg.entity.ExerciseTitle">
-
       SELECT * from exercise_title;
-
     </select>
 
     <select id="findByParentId"  parameterType="long" resultType="com.kaoshi.tyg.entity.ExerciseTitle">
-
         SELECT * from exercise_title where parent_id = #{id} ;
-
     </select>
 
 
