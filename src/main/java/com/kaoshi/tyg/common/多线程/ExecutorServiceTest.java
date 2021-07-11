@@ -1,8 +1,6 @@
 package com.kaoshi.tyg.common.多线程;
 
 
-import org.springframework.context.annotation.Bean;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -10,11 +8,11 @@ import java.util.concurrent.TimeUnit;
 
 public class ExecutorServiceTest {
 
-    static ExecutorService executor;
+    private static ExecutorService executor;
 
 
-    @Bean
-    private static ExecutorService orderExecutor(int nThreads) {
+    // @Bean
+    private static ExecutorService getOrderExecutor(int nThreads) {
         Object createLock = new Object();
 
         if (executor == null) {

@@ -1,6 +1,7 @@
 server:
-  port: 8089
-#  servlet-path: /kaoshi
+  port: 8080
+  servlet:
+    context-path: /kaoshi
 # 配置数据库相关的链接
 spring:
   datasource:
