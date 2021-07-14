@@ -75,8 +75,14 @@ import org.springframework.util.StringUtils;
  * by default, Spring's {@link Autowired @Autowired} and {@link Value @Value}
  * annotations.
  *
+ * autowires 注解，setter方法注入和其他的配置相关方法的实现，
+ * 这些方法注解是通过 识别Spring的{@link Autowired @Autowired}或者 {@link Value @Value} 注入的
+ *
  * <p>Also supports JSR-330's {@link javax.inject.Inject @Inject} annotation,
  * if available, as a direct alternative to Spring's own {@code @Autowired}.
+ *
+ * 也能支持JSR-330's {@link javax.inject.Inject @Inject}注解
+ * 如果可以的话，这是对Spring的一个替换选择
  *
  * <h3>Autowired Constructors</h3>
  * <p>Only one constructor of any given bean class may declare this annotation with
@@ -90,6 +96,9 @@ import org.springframework.util.StringUtils;
  * then a primary/default constructor (if present) will be used. If a class only
  * declares a single constructor to begin with, it will always be used, even if not
  * annotated. An annotated constructor does not have to be public.
+ *
+ * 自动注入构造方法
+ * 对于Bean类，只有一个构造方法可以声明本注解，标明构造方法注入被用作Spring Bean。并且，如果
  *
  * <h3>Autowired Fields</h3>
  * <p>Fields are injected right after construction of a bean, before any
