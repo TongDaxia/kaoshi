@@ -98,7 +98,9 @@ import org.springframework.util.StringUtils;
  * annotated. An annotated constructor does not have to be public.
  *
  * 自动注入构造方法
- * 对于Bean类，只有一个构造方法可以声明本注解，标明构造方法注入被用作Spring Bean。并且，如果
+ * 对于Bean类，只有一个构造方法可以声明本注解，标明构造方法注入被用作Spring Bean。
+ * 如果 required 属性是 true,那只有一个构造方法可以被标注解 @Autowired 。如果多个没有标注 required
+ * 的构造方法标注了  Autowired，他们会被认为是 为了注入的准备。
  *
  * <h3>Autowired Fields</h3>
  * <p>Fields are injected right after construction of a bean, before any
