@@ -341,6 +341,9 @@ public class PriorityQueue<E> extends AbstractQueue<E>
             throw new NullPointerException();
         modCount++;
         int i = size;
+        //i 代表当前未增加时实际元素数量
+        // queue.length 是当前 数组的长度（容量）
+        //一旦相等，说明需要扩容，大于（并发场景，但是并不是线程安全的）更要扩容了
         if (i >= queue.length)
             grow(i + 1);
         size = i + 1;
@@ -351,7 +354,7 @@ public class PriorityQueue<E> extends AbstractQueue<E>
         return true;
     }
 
-    @SuppressWarnings("unchecked")
+
     public E peek() {
         return (size == 0) ? null : (E) queue[0];
     }
@@ -592,9 +595,13 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     public E poll() {
         if (size == 0)
             return null;
+        //总使用量
         int s = --size;
+        //结构修改次数
         modCount++;
+        //根节点
         E result = (E) queue[0];
+        //最后一个节点的数据
         E x = (E) queue[s];
         queue[s] = null;
         if (s != 0)
@@ -670,6 +677,8 @@ public class PriorityQueue<E> extends AbstractQueue<E>
     private void siftUpComparable(int k, E x) {
         Comparable<? super E> key = (Comparable<? super E>) x;
         while (k > 0) {
+            //当前节点n是偶数，其父节点是 n/2-1
+            //当前节点n是奇数，其父节点是 (n-1)/2
             int parent = (k - 1) >>> 1;
             Object e = queue[parent];
             if (key.compareTo((E) e) >= 0)
@@ -698,6 +707,10 @@ public class PriorityQueue<E> extends AbstractQueue<E>
      * demoting x down the tree repeatedly until it is less than or
      * equal to its children or is a leaf.
      *
+     * 把 x 元素添加到 k 位置
+     * 通过从上到下的方式找适合的位置，并保堆的结构
+     * 往下滑的停止条件是 x所处的位置 比该节点的子节点小或者两者相等
+     *
      * @param k the position to fill
      * @param x the item to insert
      */
@@ -708,6 +721,12 @@ public class PriorityQueue<E> extends AbstractQueue<E>
             siftDownComparable(k, x);
     }
 
+    /**
+     * 从上到下的操作
+     *
+     * @param k
+     * @param x
+     */
     @SuppressWarnings("unchecked")
     private void siftDownComparable(int k, E x) {
         Comparable<? super E> key = (Comparable<? super E>)x;
@@ -727,13 +746,17 @@ public class PriorityQueue<E> extends AbstractQueue<E>
         queue[k] = key;
     }
 
-    @SuppressWarnings("unchecked")
+
     private void siftDownUsingComparator(int k, E x) {
         int half = size >>> 1;
         while (k < half) {
+            // 左儿子
             int child = (k << 1) + 1;
             Object c = queue[child];
+            //右儿子
             int right = child + 1;
+            //如果 右的在范围内，并且右比当前的大，说明需要换，
+            //当前位置k 设置成 right 值
             if (right < size &&
                 comparator.compare((E) c, (E) queue[right]) > 0)
                 c = queue[child = right];
