@@ -24,6 +24,8 @@ import java.util.function.Consumer;
  * A priority queue relying on natural ordering also does not permit
  * insertion of non-comparable objects (doing so may result in
  * {@code ClassCastException}).
+ *  基于堆的优先队列
+ *  需要提供有一个 Comparable ，没有就用自然排序，
  *
  * <p>The <em>head</em> of this queue is the <em>least</em> element
  * with respect to the specified ordering.  If multiple elements are
@@ -31,6 +33,8 @@ import java.util.function.Consumer;
  * broken arbitrarily.  The queue retrieval operations {@code poll},
  * {@code remove}, {@code peek}, and {@code element} access the
  * element at the head of the queue.
+ * root 节点的元素是最小的（小顶堆），
+ * 提供了 poll，remove，peek 等方法操作 操作元素
  *
  * <p>A priority queue is unbounded, but has an internal
  * <i>capacity</i> governing the size of an array used to store the
@@ -38,6 +42,8 @@ import java.util.function.Consumer;
  * size.  As elements are added to a priority queue, its capacity
  * grows automatically.  The details of the growth policy are not
  * specified.
+ * 队列是无限大小的
+ * 但是最大受限于存放元素的数组
  *
  * <p>This class and its iterator implement all of the
  * <em>optional</em> methods of the {@link Collection} and {@link
@@ -45,12 +51,16 @@ import java.util.function.Consumer;
  * #iterator()} is <em>not</em> guaranteed to traverse the elements of
  * the priority queue in any particular order. If you need ordered
  * traversal, consider using {@code Arrays.sort(pq.toArray())}.
+ * 可以用迭代器进行迭代
+ * 迭代器提供的方法不保证特定的顺序进行访问
  *
  * <p><strong>Note that this implementation is not synchronized.</strong>
  * Multiple threads should not access a {@code PriorityQueue}
  * instance concurrently if any of the threads modifies the queue.
  * Instead, use the thread-safe {@link
  * java.util.concurrent.PriorityBlockingQueue} class.
+ * 不是线程安全的
+ * 想要线程安全就去用  {@link java.util.concurrent.PriorityBlockingQueue}
  *
  * <p>Implementation note: this implementation provides
  * O(log(n)) time for the enqueuing and dequeuing methods
@@ -58,6 +68,7 @@ import java.util.function.Consumer;
  * linear time for the {@code remove(Object)} and {@code contains(Object)}
  * methods; and constant time for the retrieval methods
  * ({@code peek}, {@code element}, and {@code size}).
+ * O(log(n))时间复杂度进行入队和出队
  *
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
