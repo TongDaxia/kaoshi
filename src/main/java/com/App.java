@@ -5,11 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import java.util.Hashtable;
-import java.util.concurrent.locks.ReentrantLock;
 
 @SpringBootApplication
 @MapperScan("com.kaoshi.tyg.mapper")
@@ -21,7 +17,6 @@ public class App {
     public static void main(String[] args) {
 
         SpringApplication.run(App.class, args);
-        Hashtable hashtable = new Hashtable();
 
         LOGGER.info("--------------------server stared！！--------------------------");
     }
