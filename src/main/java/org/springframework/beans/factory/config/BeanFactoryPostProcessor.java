@@ -26,6 +26,8 @@ import org.springframework.beans.BeansException;
  * bean definitions, adapting the bean property values of the context's underlying
  * bean factory.
  *
+ * 工厂的钩子，允许在bean的定义过程中进行一些修改，适配bean的属性值
+ *
  * <p>Useful for custom config files targeted at system administrators that
  * override bean properties configured in the application context. See
  * {@link PropertyResourceConfigurer} and its concrete implementations for

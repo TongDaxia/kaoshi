@@ -25,6 +25,8 @@ import org.springframework.util.ObjectUtils;
 import java.util.function.Supplier;
 
 /**
+ * 用于构建 BeanDefinition
+ *
  * Programmatic means of constructing
  * {@link org.springframework.beans.factory.config.BeanDefinition BeanDefinitions}
  * using the builder pattern. Intended primarily for use when implementing Spring 2.0
