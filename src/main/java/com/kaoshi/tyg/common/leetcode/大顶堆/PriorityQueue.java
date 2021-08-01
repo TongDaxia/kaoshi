@@ -656,8 +656,9 @@ public class PriorityQueue<E> extends AbstractQueue<E>
      * Inserts item x at position k, maintaining heap invariant by
      * promoting x up the tree until it is greater than or equal to
      * its parent, or is the root.
+     *
      * 把元素x插入指定的位置k,要维持堆的有序性，需要依次向上比较，
-     * 直到x 大于等于它的父元素或者它本身编程了 根节点
+     * 直到 x 大于等于它的父元素或者它本身是root了 根节点
      *
      *
      * To simplify and speed up coercions and comparisons. the
