@@ -1,7 +1,7 @@
-package com.kaoshi.tyg.aspectj;
+package com.kaoshi.tyg.permission;
 
-import com.kaoshi.tyg.aspectj.annotation.FromPermission;
-import com.kaoshi.tyg.aspectj.annotation.UserPermission;
+import com.kaoshi.tyg.permission.annotation.FromPermission;
+import com.kaoshi.tyg.permission.annotation.UserPermission;
 
 public class PermissionData {
 

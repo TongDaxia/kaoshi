@@ -1,8 +1,8 @@
-package com.kaoshi.tyg.aspectj;
+package com.kaoshi.tyg.permission;
 
 import com.alibaba.fastjson.JSONObject;
-import com.kaoshi.tyg.aspectj.annotation.FromPermission;
-import com.kaoshi.tyg.aspectj.annotation.Permission;
+import com.kaoshi.tyg.permission.annotation.FromPermission;
+import com.kaoshi.tyg.permission.annotation.Permission;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -37,7 +37,7 @@ public class PermissionAspectj {
         logger.info("PermissionAspectj started ...");
     }
 
-    @Pointcut("@annotation(com.kaoshi.tyg.aspectj.annotation.Permission)")
+    @Pointcut("@annotation(com.kaoshi.tyg.permission.annotation.Permission)")
     private void permissionAnnotation() {
 
         ConcurrentHashMap map = new ConcurrentHashMap(1);

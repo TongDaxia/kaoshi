@@ -1,8 +1,8 @@
 package com.kaoshi.tyg.controller;
 
-import com.kaoshi.tyg.aspectj.annotation.FromPermission;
-import com.kaoshi.tyg.aspectj.annotation.Permission;
-import com.kaoshi.tyg.aspectj.annotation.UserPermission;
+import com.kaoshi.tyg.permission.annotation.FromPermission;
+import com.kaoshi.tyg.permission.annotation.Permission;
+import com.kaoshi.tyg.permission.annotation.UserPermission;
 import com.kaoshi.tyg.common.CommonResponse;
 import com.kaoshi.tyg.common.ReturnCode;
 import com.kaoshi.tyg.entity.dto.ExerciseDTO;

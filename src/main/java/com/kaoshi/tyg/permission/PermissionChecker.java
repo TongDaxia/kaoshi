@@ -1,7 +1,7 @@
-package com.kaoshi.tyg.aspectj;
+package com.kaoshi.tyg.permission;
 
-import com.kaoshi.tyg.aspectj.annotation.FromPermission;
-import com.kaoshi.tyg.aspectj.annotation.Permission;
+import com.kaoshi.tyg.permission.annotation.FromPermission;
+import com.kaoshi.tyg.permission.annotation.Permission;
 
 public class PermissionChecker {
 

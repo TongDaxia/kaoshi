@@ -1,4 +1,4 @@
-package com.kaoshi.tyg.aspectj.annotation;
+package com.kaoshi.tyg.permission.annotation;
 
 public enum UserPermission {
 
