@@ -92,15 +92,25 @@ import java.util.stream.Stream;
  * and {@link BeanDefinitionRegistry} interfaces: a full-fledged bean factory
  * based on bean definition metadata, extensible through post-processors.
  *
+ * <p>Spring 默认的 ConfigurableListableBeanFactory 和 BeanDefinitionRegistry 实现
+ * 是一个基于bean定义元数据的全面的 Bean Factory,可以通过 post-processors 进行拓展
+ *
+ *
  * <p>Typical usage is registering all bean definitions first (possibly read
  * from a bean definition file), before accessing beans. Bean lookup by name
  * is therefore an inexpensive operation in a local bean definition table,
  * operating on pre-resolved bean definition metadata objects.
  *
+ * <p>典型使用场景是第一次注册所有的bean，这一操作在获取bean之前进行
+ * bean通过名称查找是一个不太重的操作（在本地bean定义表中）
+ * 操作的是提前处理过的bean定义元信息对象
+ *
  * <p>Note that readers for specific bean definition formats are typically
  * implemented separately rather than as bean factory subclasses:
  * see for example {@link PropertiesBeanDefinitionReader} and
  * {@link org.springframework.beans.factory.xml.XmlBeanDefinitionReader}.
+ *
+ * 注意对bean具体的定义的读取在分开的实现里面，不在bean factory 子类里面
  *
  * <p>For an alternative implementation of the
  * {@link org.springframework.beans.factory.ListableBeanFactory} interface,

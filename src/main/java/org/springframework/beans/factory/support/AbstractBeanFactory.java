@@ -79,6 +79,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
+ * 综合 FactoryBeanRegistrySupport 和 ConfigurableBeanFactory
+ *
  * Abstract base class for {@link BeanFactory}
  * implementations, providing the full capabilities of the
  * {@link ConfigurableBeanFactory} SPI.
