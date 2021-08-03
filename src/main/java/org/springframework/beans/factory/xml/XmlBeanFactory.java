@@ -22,6 +22,10 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.core.io.Resource;
 
 /**
+ * 可惜这个类已经不用啦！
+ * 这个是老版本容器的基础
+ *
+ *
  * Convenience extension of {@link DefaultListableBeanFactory} that reads bean definitions
  * from an XML document. Delegates to {@link XmlBeanDefinitionReader} underneath; effectively
  * equivalent to using an XmlBeanDefinitionReader with a DefaultListableBeanFactory.
@@ -68,6 +72,8 @@ public class XmlBeanFactory extends DefaultListableBeanFactory {
 	}
 
 	/**
+     * 读取了配置创建了 beanFactory
+     *
 	 * Create a new XmlBeanFactory with the given input stream,
 	 * which must be parsable using DOM.
 	 * @param resource the XML resource to load bean definitions from
