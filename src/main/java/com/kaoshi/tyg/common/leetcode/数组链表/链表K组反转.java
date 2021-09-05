@@ -33,6 +33,35 @@ public class 链表K组反转 {
 
     /**
      * K 个链表元素进行反转
+     * 1234567812  4
+     * 4321876521
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    public static ListNode reverse(ListNode head, int k) {
+
+
+        ListNode root = head ;
+
+
+
+
+
+
+
+
+
+
+        return null;
+
+    }
+
+    /**
+     * K 个链表元素进行反转
+     * 1234567812  4
+     * 4321876521
      *
      * @param head
      * @param k
@@ -40,8 +69,9 @@ public class 链表K组反转 {
      */
     public static ListNode reverseKGroup(ListNode head, int k) {
         ListNode begin;
-        if (head == null || head.next == null || k == 1)
+        if (head == null || head.next == null || k == 1){
             return head;
+        }
         ListNode dummyhead = new ListNode(-1);
         dummyhead.next = head;
         begin = dummyhead;
