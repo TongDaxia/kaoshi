@@ -116,11 +116,21 @@ import java.util.concurrent.locks.ReadWriteLock;
  * held with respect to the current thread, method {@link #release}
  * invoked with the current {@link #getState} value fully releases
  * this object, and {@link #acquire}, given this saved state value,
- * eventually restores this object to its previous acquired state.  No
+ * eventually restores this object to its previous acquired state.
+ * No
  * {@code AbstractQueuedSynchronizer} method otherwise creates such a
  * condition, so if this constraint cannot be met, do not use it.  The
  * behavior of {@link ConditionObject} depends of course on the
  * semantics of its synchronizer implementation.
+ *
+ * 本类定义了一个内置的 {@link ConditionObject} 类 ，
+ * 可以用来实现 子类的 Condition 接口，
+ * 以便于通过 isHeldExclusively 告知同步模式是独占的，
+ * {@link #release} 方法和当前的 {@link #getState} 一起执行，这样能完全释放（锁对象）
+ * 释放锁时会 对于用 {@link #acquire} 已保存好的状态，进行修改，改成获取锁之前的状态值
+ *
+ *  {@code AbstractQueuedSynchronizer} 没有方法创建一个 condition ,所以如果条件不满足不要使用 AQS
+ *  {@link ConditionObject} 的行为属性依赖于同步器实现的语义。
  *
  * <p>This class provides inspection, instrumentation, and monitoring
  * methods for the internal queue, as well as similar methods for
@@ -128,19 +138,29 @@ import java.util.concurrent.locks.ReadWriteLock;
  * using an {@code AbstractQueuedSynchronizer} for their
  * synchronization mechanics.
  *
+ * 本类提供了对 内部队列 的检查，监控的方法。同样可以检查监控 condition 对象
+ * 这些方法可以用来确认类内部使用的同步机制是否符合预期。
+ *
  * <p>Serialization of this class stores only the underlying atomic
  * integer maintaining state, so deserialized objects have empty
  * thread queues. Typical subclasses requiring serializability will
  * define a {@code readObject} method that restores this to a known
  * initial state upon deserialization.
  *
+ * 本类的序列化只 保存原子的 integer值
+ * 所以反序列化的对象的时候只会有空的线程队列。
+ * 通常子类的需要通过定义  {@code readObject} 方法，保存反序列化初始化时需要的值（废话）
+ *
  * <h3>Usage</h3>
+ * 使用
  *
  * <p>To use this class as the basis of a synchronizer, redefine the
  * following methods, as applicable, by inspecting and/or modifying
  * the synchronization state using {@link #getState}, {@link
  * #setState} and/or {@link #compareAndSetState}:
  *
+ * 这个类的可作为同步器的基础。重新定义下面的方法，作为一个适应性强，
+ * 通过{@link #getState}, {@link #setState}, {@link #compareAndSetState} 检查和修改状态
  * <ul>
  * <li> {@link #tryAcquire}
  * <li> {@link #tryRelease}
