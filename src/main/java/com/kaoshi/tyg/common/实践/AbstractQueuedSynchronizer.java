@@ -451,19 +451,29 @@ public abstract class AbstractQueuedSynchronizer
 
         /**
          * waitStatus value to indicate thread has cancelled
+         * 表示当前结点已取消调度。
+         * 当timeout或被中断（响应中断的情况下），
+         * 会触发变更为此状态，进入该状态后的结点将不会再变化。
+         *
          */
+
         static final int CANCELLED = 1;
         /**
          * waitStatus value to indicate successor's thread needs unparking
+         * 后继结点在等待当前结点唤醒。后继结点入队时，会将前继结点的状态更新为SIGNAL。
          */
         static final int SIGNAL = -1;
         /**
          * waitStatus value to indicate thread is waiting on condition
+         * 表示结点等待在Condition上，当其他线程调用了Condition的signal()方法后，
+         * CONDITION状态的结点将从等待队列转移到同步队列中，等待获取同步锁。
          */
         static final int CONDITION = -2;
         /**
          * waitStatus value to indicate the next acquireShared should
          * unconditionally propagate
+         * 共享模式下，前继结点不仅会唤醒其后继结点，同时也可能会唤醒后继的后继结点。
+         *
          */
         static final int PROPAGATE = -3;
 
@@ -1134,6 +1144,9 @@ public abstract class AbstractQueuedSynchronizer
      * signalled by a release from some other thread. This can be used
      * to implement method {@link Lock#tryLock()}.
      * <p>
+     *
+ *     在独占模式下尝试获取资源。
+ *
      * <p>The default
      * implementation throws {@link UnsupportedOperationException}.
      *
@@ -1266,6 +1279,11 @@ public abstract class AbstractQueuedSynchronizer
      * repeatedly blocking and unblocking, invoking {@link
      * #tryAcquire} until success.  This method can be used
      * to implement method {@link Lock#lock}.
+     *
+     * 适用于独占模式。整个过程会忽略中断。
+     * 通过调用 {@link #tryAcquire} 实现。
+     * 要么成功，要么进入等待，直到获取资源。
+     * 这个方法就是 lock() 的意思（一种实现）。
      *
      * @param arg the acquire argument.  This value is conveyed to
      *            {@link #tryAcquire} but is otherwise uninterpreted and
